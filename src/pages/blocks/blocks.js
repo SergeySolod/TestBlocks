@@ -7,12 +7,13 @@ const Blocks = (props) => {
     if (!props.blocks) {
         return <div>Загрузка...</div>
     }
+    console.log(props)
     return (
         <div className="row">
             {
                 props.blocks.map(block => <div className='col-sm-3 col-lg-3 col-md-3 book-list'
                                                key={block.id}>
-                    <div className="thumbnail" onClick={() => props.takeBlock(block.id, true)}>
+                    <div className={block.take ? 'alert alert-danger' : 'alert alert-light'} onClick={() => props.takeBlock(block.id, true)}>
                         <div className="card">
 
 
