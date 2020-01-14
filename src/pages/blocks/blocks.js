@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
+import {removeTask} from "../../redux/reducers/blocks-reducer";
 
 const Blocks = (props) => {
 
     if (!props.blocks) {
         return <div>Загрузка...</div>
     }
-console.log(props.blocks)
+    console.log(props.blocks)
     return (
         <div className="row">
             {
@@ -18,9 +19,10 @@ console.log(props.blocks)
 
                             <div className={block.hue}>
                                 <div className="card-body">
+                                    <div onClick={() => props.removeTask(block.id)}
+                                         className="fas fa-times">&#10008;</div>
                                     <h5 className="card-title">{block.text}</h5>
-                                    <p className='itemButton'>
-                                    </p>
+
                                 </div>
                             </div>
                         </div>
@@ -37,4 +39,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(Blocks);
+export default connect(mapStateToProps, {removeTask})(Blocks);

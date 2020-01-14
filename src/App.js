@@ -7,7 +7,7 @@ function App() {
     return (
         <div className='container pt-4'>
             <div className="row no-gutters">
-                <div className="col-md-4">
+                <div className="col-md-3">
                     <Sidebar/>
                 </div>
                 <div className="col-md-8">
