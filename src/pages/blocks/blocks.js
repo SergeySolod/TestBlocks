@@ -1,36 +1,40 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
-import {setBlock} from "../../redux/reducers/blocks-reducer";
 
 const Blocks = (props) => {
 
-    const addBlockSimple = () => {
-        const block = {
-            id: (new Date()).getTime(),
-            text: (Math.random().toString(36).substring(2, 15)),
-            color: 'white',
-            take: false
-        };
-        props.setBlock(block)
-    };
-
-    const addBlockComplete = () => {
-        const block = {
-            id: (new Date()).getTime(),
-            text: (Math.random().toString(36).substring(2, 15)),
-            color: 'green',
-            take: false
-        };
-        props.setBlock(block)
-    };
-
-
+    if (!props.blocks) {
+        return <div>Загрузка...</div>
+    }
+console.log(props.blocks)
     return (
-        <div>
-            <button onClick={addBlockSimple} className="btn btn-primary">Добавить простой блок</button>
-            <button onClick={addBlockComplete} className="btn btn-primary">Добавить сложный блок</button>
+        <div className="row">
+            {
+                props.blocks.map(block => <div className='col-sm-3 col-lg-3 col-md-3 book-list'
+                                               key={block.id}>
+                    <div className="thumbnail">
+                        <div className="card">
+
+
+                            <div className={block.hue}>
+                                <div className="card-body">
+                                    <h5 className="card-title">{block.text}</h5>
+                                    <p className='itemButton'>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>)
+            }
         </div>
     )
 }
 
-export default connect(null, {setBlock})(Blocks);
+const mapStateToProps = (state) => {
+    return {
+        blocks: state.blocks
+    }
+}
+
+export default connect(mapStateToProps, null)(Blocks);

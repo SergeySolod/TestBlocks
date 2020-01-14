@@ -1,4 +1,5 @@
 import React from 'react';
+import Buttons from "./pages/blocks/buttons";
 import Blocks from "./pages/blocks/blocks";
 import Sidebar from "./components/sidebar/sidebar";
 
@@ -10,6 +11,7 @@ function App() {
                     <Sidebar/>
                 </div>
                 <div className="col-md-8">
+                    <Buttons/>
                     <Blocks/>
                 </div>
             </div>
