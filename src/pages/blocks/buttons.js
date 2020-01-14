@@ -6,11 +6,11 @@ const Buttons = (props) => {
 
     const addBlockSimple = () => {
 
-        props.setBlock((new Date()).getTime(), (Math.random().toString(36).substring(2, 15)), 'alert alert-light', false)
+        props.setBlock('simple', (new Date()).getTime(), (Math.random().toString(36).substring(2, 15)), 'alert alert-light', false)
     };
 
     const addBlockComplete = () => {
-        props.setBlock((new Date()).getTime(), (Math.random().toString(36).substring(2, 15)), 'alert alert-success', false)
+        props.setBlock('complete', (new Date()).getTime(), (Math.random().toString(36).substring(2, 15)), 'alert alert-success', false)
     };
 
 

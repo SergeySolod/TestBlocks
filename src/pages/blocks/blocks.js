@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
-import {removeTask, takeBlock} from "../../redux/reducers/blocks-reducer";
+import {changeHue, removeTask, takeBlock} from "../../redux/reducers/blocks-reducer";
 
 const Blocks = (props) => {
 
@@ -13,7 +13,10 @@ const Blocks = (props) => {
             {
                 props.blocks.map(block => <div className='col-sm-3 col-lg-3 col-md-3 book-list'
                                                key={block.id}>
-                    <div className={block.take ? 'alert alert-danger' : 'alert alert-light'} onClick={() => props.takeBlock(block.id, true)}>
+                    <div className={block.take ? 'alert alert-danger' : 'alert alert-light'}
+                         onClick={() => props.takeBlock(block.id, true)}
+                         onDoubleClick={() => props.changeHue(block.id)}
+                    >
                         <div className="card">
 
 
@@ -22,7 +25,6 @@ const Blocks = (props) => {
                                     <div onClick={() => props.removeTask(block.id)}
                                          className="fas fa-times">&#10008;</div>
                                     <h5 className="card-title">{block.text}</h5>
-
                                 </div>
                             </div>
                         </div>
@@ -39,4 +41,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {removeTask, takeBlock})(Blocks);
+export default connect(mapStateToProps, {removeTask, takeBlock, changeHue})(Blocks);
