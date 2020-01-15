@@ -10,7 +10,7 @@ function App() {
                 <div className="col-md-3">
                     <Sidebar/>
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-8 pl-5">
                     <Buttons/>
                     <Blocks/>
                 </div>

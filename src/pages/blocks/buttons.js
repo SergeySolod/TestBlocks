@@ -6,7 +6,7 @@ const Buttons = (props) => {
 
     const addBlockSimple = () => {
 
-        props.setBlock('simple', (new Date()).getTime(), (Math.random().toString(36).substring(2, 15)), 'alert alert-light', false)
+        props.setBlock('simple', (new Date()).getTime(), (Math.random().toString(36).substring(2, 15)), 'alert alert-dark', false)
     };
 
     const addBlockComplete = () => {
@@ -15,9 +15,9 @@ const Buttons = (props) => {
 
 
     return (
-        <div>
+        <div className='pb-3'>
             <button onClick={addBlockSimple} className="btn btn-primary">Добавить простой блок</button>
-            <button onClick={addBlockComplete} className="btn btn-primary">Добавить сложный блок</button>
+            <button onClick={addBlockComplete} className="btn btn-success">Добавить сложный блок</button>
         </div>
     )
 }

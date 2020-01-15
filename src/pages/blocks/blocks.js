@@ -18,14 +18,12 @@ const Blocks = (props) => {
     return (
         <div className="row">
             {
-                props.blocks.map(block => <div className='col-sm-3 col-lg-3 col-md-3 book-list'
+                props.blocks.map(block => <div className='col-sm-4 col-lg-4 col-md-4 book-list'
                                                key={block.id}>
-                    <div className={block.take ? 'alert alert-danger' : 'alert alert-light'}
+                    <div className={block.take ? 'alert alert-warning card' : 'alert alert-light card'}
                          onClick={() => props.takeBlock(block.id, true)}
                          onDoubleClick={() => props.changeHue(block.id)}
                     >
-                        <div className="card">
-
 
                             <div className={block.hue}>
                                 <div className="card-body">
@@ -33,7 +31,7 @@ const Blocks = (props) => {
                                          className="fas fa-times">&#10008;</div>
                                     <h5 className="card-title">{block.text}</h5>
                                 </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>)
