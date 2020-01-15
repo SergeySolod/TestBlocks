@@ -4,6 +4,13 @@ import {changeHue, removeTask, takeBlock} from "../../redux/reducers/blocks-redu
 
 const Blocks = (props) => {
 
+    const removeBlock = (id) => {
+        let shoudRemove = window.confirm('Вы уверены, что хотите удалить элемент?')
+        if (shoudRemove) {
+            props.removeTask(id)        }
+    }
+
+
     if (!props.blocks) {
         return <div>Загрузка...</div>
     }
@@ -22,7 +29,7 @@ const Blocks = (props) => {
 
                             <div className={block.hue}>
                                 <div className="card-body">
-                                    <div onClick={() => props.removeTask(block.id)}
+                                    <div onClick={() => removeBlock(block.id)}
                                          className="fas fa-times">&#10008;</div>
                                     <h5 className="card-title">{block.text}</h5>
                                 </div>
