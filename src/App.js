@@ -1,22 +1,23 @@
 import React from 'react';
-import Buttons from "./pages/blocks/buttons";
-import Blocks from "./pages/blocks/blocks";
-import Sidebar from "./components/sidebar/sidebar";
+import {Route, Switch} from 'react-router-dom'
+
+import Home from "./pages/home/home";
+import BlockPage from "./pages/blocks/blockPage";
+import {Navbar} from "./components/navbar/navbar";
 
 function App() {
     return (
-        <div className='container pt-4'>
-            <div className="row no-gutters">
-                <div className="col-md-3">
-                    <Sidebar/>
-                </div>
-                <div className="col-md-8 pl-5">
-                    <Buttons/>
-                    <Blocks/>
-                </div>
+        <div>
+            <Navbar/>
+            <div className="container pt-4">
+                <Switch>
+                    <Route path='/' exact render={() => <Home/>}/>
+                    <Route path='/blocks' exact render={() => <BlockPage/>}/>
+                </Switch>
             </div>
         </div>
     );
 }
 
 export default App;
+
